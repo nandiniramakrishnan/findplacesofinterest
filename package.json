@@ -1,0 +1,31 @@
+{
+  "name": "findplacesofinterest",
+  "version": "1.0.0",
+  "description": "A web application to find nearby places of interest, using React.js, Node.js and Foursquare",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nandiniramakrishnan/findplacesofinterest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nandiniramakrishnan/findplacesofinterest/issues"
+  },
+  "homepage": "https://github.com/nandiniramakrishnan/findplacesofinterest#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "http": "0.0.0",
+    "request-promise": "^4.2.0"
+  },
+  "devDependencies": {
+    "bluebird": "^3.5.0",
+    "lodash": "^4.17.4",
+    "request": "^2.81.0",
+    "stealthy-require": "^1.0.0"
+  }
+}
