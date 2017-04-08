@@ -1,3 +1,5 @@
+import LocationTable from './locationtable'
+
 class LocationForm extends React.Component {
     constructor(props) {
         super(props);
@@ -14,21 +16,25 @@ class LocationForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         $.post('/results', this.state, function(data) {
-            alert(JSON.stringify(data));
+            var venueList = []
+            data.response.venues.map(function(venueDetails) {
+                venueList.push(venueDetails.name);
+            });
+            ReactDOM.render(<LocationTable tableData={venueList} />, document.getElementById('resultsDiv'));
         });
 
     }
 
     render() {
         return (
-                <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
                 <label>
-                Enter a location:
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    Enter a location:
+                    <input type="text" value={this.state.value} onChange={this.handleChange} />
                 </label>
                 <input type="submit" value="Search" />
-                </form>
-               );
+            </form>
+        );
     }
 }
 
