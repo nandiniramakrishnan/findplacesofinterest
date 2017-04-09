@@ -1,4 +1,5 @@
 import LocationTable from './locationtable'
+import ErrorMsg from './errormsg'
 
 class LocationForm extends React.Component {
     constructor(props) {
@@ -16,11 +17,15 @@ class LocationForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         $.post('/results', this.state, function(data) {
-            var venueList = []
-            data.response.venues.map(function(venueDetails) {
-                venueList.push(venueDetails.name);
-            });
-            ReactDOM.render(<LocationTable tableData={venueList} />, document.getElementById('resultsDiv'));
+            if (data.response.venues == undefined) {
+                ReactDOM.render(<ErrorMsg err={data.statusCode} />, document.getElementById('resultsDiv'));
+            }
+            else {
+                var venueList = []
+                data.response.venues.map(function(venueDetails) {
+                    venueList.push(venueDetails.name);
+                });
+                ReactDOM.render(<LocationTable tableData={venueList} />, document.getElementById('resultsDiv'));                    }
         });
 
     }

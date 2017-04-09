@@ -5,6 +5,5 @@ export default class LocationTable extends React.Component {
                 return <li>{venue}</li>;
             })}
         </ul>);
-        //return (<ul>{this.props.tableData}</ul>);
     }
 }

@@ -12,33 +12,27 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var LocationTable = function (_React$Component) {
-    _inherits(LocationTable, _React$Component);
+var ErrorMsg = function (_React$Component) {
+    _inherits(ErrorMsg, _React$Component);
 
-    function LocationTable() {
-        _classCallCheck(this, LocationTable);
+    function ErrorMsg() {
+        _classCallCheck(this, ErrorMsg);
 
-        return _possibleConstructorReturn(this, (LocationTable.__proto__ || Object.getPrototypeOf(LocationTable)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (ErrorMsg.__proto__ || Object.getPrototypeOf(ErrorMsg)).apply(this, arguments));
     }
 
-    _createClass(LocationTable, [{
+    _createClass(ErrorMsg, [{
         key: "render",
         value: function render() {
             return React.createElement(
-                "ul",
+                "p",
                 null,
-                this.props.tableData.map(function (venue) {
-                    return React.createElement(
-                        "li",
-                        null,
-                        venue
-                    );
-                })
+                this.props.err
             );
         }
     }]);
 
-    return LocationTable;
+    return ErrorMsg;
 }(React.Component);
 
-exports.default = LocationTable;
+exports.default = ErrorMsg;
