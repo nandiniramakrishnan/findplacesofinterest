@@ -28,6 +28,8 @@ This script accepts your Foursquare Client ID and secret, in order to access the
 4) ...and start running your application!
 `npm start`
 
+The webapp will now be running at http://localhost:3000
+
 This webapp has been deployed using Heroku and can be publicly accessed here: https://gentle-spire-72074.herokuapp.com/
 
 ## Testing using Jest
