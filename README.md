@@ -3,6 +3,8 @@ A web application to find nearby places of interest, using React.js, Node.js and
 
 The webapp asks for a location (which should be recognized by Foursquare) and accepts user input. On submitting the user request, the webapp will retrieve a list of all nearby locations as returned by the Venue Search endpoint (https://developer.foursquare.com/docs/venues/search)
 
+Examples of valid inputs: New york university, Fisherman's wharf
+
 This project mainly relies on the following dependencies:
 1) Babel for transpiling ES6 code
 2) Browserify to bundle the separate front-end components into a single `bundle.js` file
