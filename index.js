@@ -3,7 +3,7 @@
 const express = require('express')  
 const rp = require('request-promise')
 const path = require('path')
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const fs = require('fs') 
 
 const app = express() 
@@ -12,9 +12,10 @@ app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-id = ''
-secret = ''
-hasUserCredentials = false;
+var id = ''
+var secret = ''
+var hasUserCredentials = false;
+var client_data = []
 
 fs.readFile('static/user_config.txt', 'utf8', function(err, data) {
     if (err) {
@@ -57,5 +58,5 @@ app.use('/results', (request, response) => {
     }
 })
 
-app.listen(3000)
-
+var server = app.listen(3000);
+module.exports = server;

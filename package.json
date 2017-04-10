@@ -5,8 +5,8 @@
   "main": "lib/index.js",
   "scripts": {
     "build": "./node_modules/.bin/babel src -d static/js",
-    "bundle": "./node_modules/browserify/bin/cmd.js static/js/locationform.js -o static/js/bundle.js",
-    "test": "jest",
+    "bundle": "./node_modules/browserify/bin/cmd.js static/js/app.js -o static/js/bundle.js",
+    "test": "jest --verbose",
     "start": "npm run build && npm run bundle && node index.js"
   },
   "repository": {
@@ -24,8 +24,8 @@
     "express": "^4.15.2",
     "fs": "0.0.1-security",
     "http": "0.0.0",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
+    "react": "^15.5.3",
+    "react-dom": "^15.5.3",
     "react-router": "^4.0.0",
     "request-promise": "^4.2.0"
   },
@@ -42,18 +42,38 @@
     "bluebird": "^3.5.0",
     "browserify": "^14.3.0",
     "jest": "^19.0.2",
+    "jest-cli": "^19.0.2",
     "lodash": "^4.17.4",
+    "react-addons-test-utils": "^15.5.0",
+    "really-need": "^1.9.2",
     "request": "^2.81.0",
     "stealthy-require": "^1.0.0",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2",
     "webpack": "^2.2.0"
   },
   "babel": {
     "plugins": [
       "transform-react-jsx"
     ],
-    "presets": ["env", "es2015", "react"]
+    "presets": [
+      "env",
+      "es2015",
+      "react"
+    ]
   },
   "jest": {
-    "moduleDirectories": ["node_modules"]
+    "transform": {
+      ".*": "./node_modules/babel-jest"
+    },
+    "unmockedModulePathPatterns": [
+      "./node_modules/react",
+      "./node_modules/react-dom",
+      "./node_modules/react-addons-test-utils",
+      "./node_modules/fbjs"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ]
   }
 }

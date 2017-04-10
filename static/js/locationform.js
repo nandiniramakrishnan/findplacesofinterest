@@ -1,6 +1,18 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = require('react-dom');
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
 
 var _locationtable = require('./locationtable');
 
@@ -44,34 +56,38 @@ var LocationForm = function (_React$Component) {
             event.preventDefault();
             $.post('/results', this.state, function (data) {
                 if (data.response.venues == undefined) {
-                    ReactDOM.render(React.createElement(_errormsg2.default, { err: data.statusCode }), document.getElementById('resultsDiv'));
+                    _reactDom2.default.render(_react2.default.createElement(_errormsg2.default, { err: data.statusCode }), document.getElementById('resultsDiv'));
                 } else {
                     var venueList = [];
                     data.response.venues.map(function (venueDetails) {
                         venueList.push(venueDetails.name);
                     });
-                    ReactDOM.render(React.createElement(_locationtable2.default, { tableData: venueList }), document.getElementById('resultsDiv'));
+                    _reactDom2.default.render(_react2.default.createElement(_locationtable2.default, { tableData: venueList }), document.getElementById('resultsDiv'));
                 }
             });
         }
     }, {
         key: 'render',
         value: function render() {
-            return React.createElement(
+            return _react2.default.createElement(
                 'form',
                 { onSubmit: this.handleSubmit },
-                React.createElement(
+                _react2.default.createElement(
                     'label',
                     null,
                     'Enter a location:',
-                    React.createElement('input', { type: 'text', value: this.state.value, onChange: this.handleChange })
+                    _react2.default.createElement('input', { id: 'locationField', type: 'text', value: this.state.value, onChange: this.handleChange })
                 ),
-                React.createElement('input', { type: 'submit', value: 'Search' })
+                _react2.default.createElement(
+                    'button',
+                    { type: 'submit' },
+                    'Search'
+                )
             );
         }
     }]);
 
     return LocationForm;
-}(React.Component);
+}(_react2.default.Component);
 
-ReactDOM.render(React.createElement(LocationForm, null), document.getElementById('searchDiv'));
+exports.default = LocationForm;

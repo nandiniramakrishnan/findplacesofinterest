@@ -1,7 +1,9 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
 import LocationTable from './locationtable'
 import ErrorMsg from './errormsg'
 
-class LocationForm extends React.Component {
+export default class LocationForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {value: ''};
@@ -35,15 +37,10 @@ class LocationForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Enter a location:
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+                    <input id = "locationField" type="text" value={this.state.value} onChange={this.handleChange} />
                 </label>
-                <input type="submit" value="Search" />
+                <button type="submit">Search</button>
             </form>
         );
     }
 }
-
-ReactDOM.render(
-        <LocationForm />,
-        document.getElementById('searchDiv')
-        );

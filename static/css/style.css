@@ -1,6 +1,10 @@
 /* static/css/style.css */
 
 #searchDiv {
+    background-color: aliceblue;
+    font-family: Arial;
+    padding: 10px;
+    margin: 10px;
 }
 
 #searchButton {
@@ -10,10 +14,13 @@
 }
 
 .list {
+    font-family: Tahoma;
 }
 
 .venue {
+    margin: 5px;
 }
 
 .errorMsg {
 }
+

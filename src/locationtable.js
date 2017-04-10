@@ -1,8 +1,10 @@
+import React from 'react'
+
 export default class LocationTable extends React.Component {
     render() {
-        return (<ul>
+        return (<ul className="list">
             {this.props.tableData.map(function(venue) {
-                return <li>{venue}</li>;
+                return <li className="venue" key={venue}>{venue}</li>;
             })}
         </ul>);
     }
