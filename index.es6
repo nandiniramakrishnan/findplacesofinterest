@@ -31,7 +31,6 @@ fs.readFile('static/user_config.txt', 'utf8', function(err, data) {
 
 
 app.get('/', (request, response) => { 
-    console.log(request.ip);
     response.sendFile(path.join(__dirname+'/index.html'))
 })
 

@@ -34,13 +34,15 @@ export default class LocationForm extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <div>
+                <form onSubmit={this.handleSubmit}>
                 <label>
                     Enter a location:
                     <input id = "locationField" type="text" value={this.state.value} onChange={this.handleChange} />
                 </label>
-                <button type="submit">Search</button>
+                <button onClick={this.handleSubmit} type="submit">Search</button>
             </form>
+            </div>
         );
     }
 }
