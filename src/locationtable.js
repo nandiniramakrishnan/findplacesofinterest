@@ -1,3 +1,6 @@
+/* src/locationtable.js - Renders table of locations */
+
+/* Import React to avoid "undefined" errors during npm test */
 import React from 'react'
 
 export default class LocationTable extends React.Component {

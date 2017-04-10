@@ -1,11 +1,15 @@
+/* app.test.js - Tests for rendering components, to find places nearby which are important */
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-dom/test-utils';
 
+/* Import modules to test rendering */
 import ErrorMsg from './src/errormsg';
 import LocationTable from './src/locationtable';
 import LocationForm from './src/locationform';
 
+/* Mock values for components */
 var errorValue = 200;
 var locations = ['Aspen','Belize','Cairo'];
 var newLocation = 'New Location';
@@ -43,8 +47,6 @@ describe('LocationForm', () => {
         input[0].value = 'New Location';
         TestUtils.Simulate.change(input[0]);
         expect(rendered.state.value).toEqual('New Location');
-    });
-    it('handles submit', () => {
     });
 });
 

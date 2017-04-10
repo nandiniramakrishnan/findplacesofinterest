@@ -1,4 +1,4 @@
-// content of index.js
+/* index.js - Node/Express backend for findplacesofinterest */
 
 const express = require('express')  
 const rp = require('request-promise')
@@ -6,16 +6,22 @@ const path = require('path')
 const bodyParser = require('body-parser');
 const fs = require('fs') 
 
-const app = express() 
+/* Create server instance */
+const app = express();
 
+/* Location for static resources used in index.html */ 
 app.use(express.static(__dirname + '/static'));
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
+/* For parsing application/json */
+app.use(bodyParser.json());
+
+/* For parsing application/x-www-form-urlencoded */
+app.use(bodyParser.urlencoded({ extended: true }));
+
+/* Read client ID and secret from user_config file */
 var id = ''
 var secret = ''
 var client_data = []
-
 fs.readFile('static/user_config.txt', 'utf8', function(err, data) {
     if (err) {
         console.log('Improper client id or secret!');
@@ -26,15 +32,18 @@ fs.readFile('static/user_config.txt', 'utf8', function(err, data) {
     secret = client_data[1];
 });
 
-
+/* Load initial .html file */
 app.get('/', (request, response) => { 
     response.sendFile(path.join(__dirname+'/index.html'))
 })
 
+/* Response to POST redirection to /results gives the locations */
 app.use('/results', (request, response) => {
     var userLocationJSON = request.body;
     var userLocationWithSpaces = userLocationJSON.value;
     var userLocation = userLocationWithSpaces.split(' ').join('+');
+    
+    /* Pass URI and parameters (including client credentials) to request-promise object */
     rp({
         uri: 'https://api.foursquare.com/v2/venues/search',
         qs: {
@@ -46,12 +55,15 @@ app.use('/results', (request, response) => {
         json: true
     })
     .then((data) => {
-        response.send(data)
+        response.send(data)         /* Send results back to AJAX POST request */
     })
     .catch((err) => {
-        response.send(err)
+        response.send(err)          /* Send error back to AJAX POST request */
     })
 })
 
-var server = app.listen(3000);
+/* Launch server */
+var server = app.listen(process.env.PORT || 3000);
+
+/* Export for testing */
 module.exports = server;

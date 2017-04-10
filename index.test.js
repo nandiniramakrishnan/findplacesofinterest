@@ -1,6 +1,11 @@
+/* index.test.js - Tests in Jest to find places of interest */
+
 const request = require('supertest');
+
+/* Get server from index.js */
 var server = require('./index.js');
 
+/* Test response to various URLs */
 it("handles / correctly", (done) => {
     request(server)
         .get('/')
@@ -8,7 +13,6 @@ it("handles / correctly", (done) => {
         .expect('Content-Type', 'text/html; charset=UTF-8')
         .end((err, res) => err ? done.fail(err) : done());
 });
-
 
 it("Without request, /results returns a server error (not 404)", (done) => {
     request(server)
