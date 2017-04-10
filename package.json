@@ -2,7 +2,7 @@
   "name": "findplacesofinterest",
   "version": "1.0.0",
   "description": "A web application to find nearby places of interest, using React.js, Node.js and Foursquare",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "./node_modules/.bin/babel src -d static/js",
     "bundle": "./node_modules/browserify/bin/cmd.js static/js/app.js -o static/js/bundle.js",
