@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-dom/test-utils';
 
-import ErrorMsg from './static/js/bundle';
-import LocationTable from './static/js/bundle';
-import LocationForm from './static/js/bundle';
-//import LocationTable from './src/locationtable';
-//import LocationForm from './src/locationform';
+import ErrorMsg from './src/errormsg';
+import LocationTable from './src/locationtable';
+import LocationForm from './src/locationform';
 
 var errorValue = 200;
 var locations = ['Aspen','Belize','Cairo'];
