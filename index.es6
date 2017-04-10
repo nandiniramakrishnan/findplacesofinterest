@@ -12,11 +12,11 @@ app.use(express.static(__dirname + '/static'));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
-var id = ''
-var secret = ''
-var hasUserCredentials = false;
+var id = '3DLLVHAIFTYBD51P43YYSTCJQ0HV3QPYHX1IECXBX1Z1LQ3W'
+var secret = 'DTVBEDEVMEGAUSVABGXM3EDAZDJIV0RZD2PPJ2K12NDJRW03'
+var hasUserCredentials = true;
 var client_data = []
-
+/*
 fs.readFile('static/user_config.txt', 'utf8', function(err, data) {
     if (err) {
         console.log('Improper client id or secret!');
@@ -27,7 +27,7 @@ fs.readFile('static/user_config.txt', 'utf8', function(err, data) {
     secret = client_data[1];
     hasUserCredentials = true;
 });
-
+*/
 
 
 app.get('/', (request, response) => { 
