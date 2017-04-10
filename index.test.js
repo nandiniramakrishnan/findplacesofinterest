@@ -1,15 +1,26 @@
-const request = require('supertest-as-promised');
-
+const request = require('supertest');
 var server = require('./index.js');
 
-it('responds to /', function testSlash(done) {
+it("handles / correctly", (done) => {
     request(server)
         .get('/')
-        .expect(200, done);
+        .expect(200)
+        .expect('Content-Type', 'text/html; charset=UTF-8')
+        .end((err, res) => err ? done.fail(err) : done());
 });
 
-it('404 everything else', function testPath(done) {
+
+it("Without request, /results returns a server error (not 404)", (done) => {
     request(server)
-        .get('/foo')
-        .expect(404, done);
+        .get('/results')
+        .expect(500)
+        .end((err, res) => err ? done.fail(err) : done());
 });
+
+it("404 everything else", (done) => {
+    request(server)
+        .get('/foo/bar')
+        .expect(404)
+        .end((err, res) => err ? done.fail(err) : done());
+});
+

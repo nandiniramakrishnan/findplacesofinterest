@@ -20878,18 +20878,22 @@ var LocationForm = function (_React$Component) {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                'form',
-                { onSubmit: this.handleSubmit },
+                'div',
+                null,
                 _react2.default.createElement(
-                    'label',
-                    null,
-                    'Enter a location:',
-                    _react2.default.createElement('input', { id: 'locationField', type: 'text', value: this.state.value, onChange: this.handleChange })
-                ),
-                _react2.default.createElement(
-                    'button',
-                    { type: 'submit' },
-                    'Search'
+                    'form',
+                    { onSubmit: this.handleSubmit },
+                    _react2.default.createElement(
+                        'label',
+                        null,
+                        'Enter a location:',
+                        _react2.default.createElement('input', { id: 'locationField', type: 'text', value: this.state.value, onChange: this.handleChange })
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.handleSubmit, type: 'submit' },
+                        'Search'
+                    )
                 )
             );
         }
@@ -20933,15 +20937,20 @@ var LocationTable = function (_React$Component) {
         key: "render",
         value: function render() {
             return _react2.default.createElement(
-                "ul",
+                "div",
                 { className: "list" },
-                this.props.tableData.map(function (venue) {
-                    return _react2.default.createElement(
-                        "li",
-                        { className: "venue", key: venue },
-                        venue
-                    );
-                })
+                "Some nearby places include: ",
+                _react2.default.createElement(
+                    "ul",
+                    null,
+                    this.props.tableData.map(function (venue) {
+                        return _react2.default.createElement(
+                            "li",
+                            { className: "venue", key: venue },
+                            venue
+                        );
+                    })
+                )
             );
         }
     }]);

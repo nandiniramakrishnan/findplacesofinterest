@@ -14,7 +14,6 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 
 var id = ''
 var secret = ''
-var hasUserCredentials = false;
 var client_data = []
 
 fs.readFile('static/user_config.txt', 'utf8', function(err, data) {
@@ -25,21 +24,17 @@ fs.readFile('static/user_config.txt', 'utf8', function(err, data) {
     client_data = data.split('\n');
     id = client_data[0];
     secret = client_data[1];
-    hasUserCredentials = true;
 });
 
 
-
 app.get('/', (request, response) => { 
-    console.log(request.ip);
     response.sendFile(path.join(__dirname+'/index.html'))
 })
 
 app.use('/results', (request, response) => {
-    if (hasUserCredentials) {
-    userLocationJSON = request.body;
-    userLocationWithSpaces = userLocationJSON.value;
-    userLocation = userLocationWithSpaces.split(' ').join('+');
+    var userLocationJSON = request.body;
+    var userLocationWithSpaces = userLocationJSON.value;
+    var userLocation = userLocationWithSpaces.split(' ').join('+');
     rp({
         uri: 'https://api.foursquare.com/v2/venues/search',
         qs: {
@@ -56,7 +51,6 @@ app.use('/results', (request, response) => {
     .catch((err) => {
         response.send(err)
     })
-    }
 })
 
 var server = app.listen(3000);

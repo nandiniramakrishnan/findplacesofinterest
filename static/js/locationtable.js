@@ -31,15 +31,20 @@ var LocationTable = function (_React$Component) {
         key: "render",
         value: function render() {
             return _react2.default.createElement(
-                "ul",
+                "div",
                 { className: "list" },
-                this.props.tableData.map(function (venue) {
-                    return _react2.default.createElement(
-                        "li",
-                        { className: "venue", key: venue },
-                        venue
-                    );
-                })
+                "Some nearby places include: ",
+                _react2.default.createElement(
+                    "ul",
+                    null,
+                    this.props.tableData.map(function (venue) {
+                        return _react2.default.createElement(
+                            "li",
+                            { className: "venue", key: venue },
+                            venue
+                        );
+                    })
+                )
             );
         }
     }]);
