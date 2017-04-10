@@ -7,7 +7,7 @@
     "build": "./node_modules/.bin/babel src -d static/js",
     "bundle": "./node_modules/browserify/bin/cmd.js static/js/app.js -o static/js/bundle.js",
     "test": "jest --verbose",
-    "start": "npm run build && npm run bundle && node index.js"
+    "start": "npm run bundle && ./node_modules/.bin/babel-node index.es6"
   },
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "babel": "^6.23.0",
-    "babel-cli": "^6.24.0",
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.0",
     "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.1",

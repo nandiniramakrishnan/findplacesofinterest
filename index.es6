@@ -37,9 +37,9 @@ app.get('/', (request, response) => {
 
 app.use('/results', (request, response) => {
     if (hasUserCredentials) {
-    userLocationJSON = request.body;
-    userLocationWithSpaces = userLocationJSON.value;
-    userLocation = userLocationWithSpaces.split(' ').join('+');
+    var userLocationJSON = request.body;
+    var userLocationWithSpaces = userLocationJSON.value;
+    var userLocation = userLocationWithSpaces.split(' ').join('+');
     rp({
         uri: 'https://api.foursquare.com/v2/venues/search',
         qs: {
