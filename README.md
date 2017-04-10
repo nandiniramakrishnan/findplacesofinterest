@@ -1,7 +1,7 @@
 # findplacesofinterest
-A web application to find nearby places of interest, using React.js, Node.js and Foursquare
+A web application to find nearby places of interest, using React.js, Node.js and Foursquare. This uses the Foursquare API's Venue Search endpoint.
 
-Perform the following steps to get nearby places of interest from Foursquare. This uses the Foursquare API's Venue Search endpoint.
+Perform the following steps to run the webapp locally. 
 
 To run the application for the first time:
 `./app.sh`
@@ -15,3 +15,9 @@ Then build the code using:
 
 ...and start running your application!
 `npm start`
+
+This webapp has been deployed using Heroku and can be publicly accessed here: https://gentle-spire-72074.herokuapp.com/
+
+## Testing using Jest
+For unit testing, run `npm test`
+
