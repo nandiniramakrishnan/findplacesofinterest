@@ -59,5 +59,5 @@ app.use('/results', (request, response) => {
     }
 })
 
-var server = app.listen(3000);
+var server = app.listen(process.env.PORT || 3000);
 module.exports = server;
